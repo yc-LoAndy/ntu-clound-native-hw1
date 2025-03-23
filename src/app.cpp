@@ -23,7 +23,9 @@ void App::run()
             if (input.empty())
                 continue;
 
-            vector commandVec = split(input);
+            vector<string> commandVec = split(input);
+            if (commandVec.empty())
+                continue;
             string command = commandVec[0];
 
             if (this->commandMap.find(command) == this->commandMap.end())

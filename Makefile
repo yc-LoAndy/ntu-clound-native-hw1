@@ -1,5 +1,6 @@
 CC = g++
-CFLAGS = -Wall -Wextra -std=c++17 -I ./include -I ./include/model
+CFLAGS = -Wall -Wextra -fsanitize=address -g -std=c++17 -I ./include -I ./include/model
+LDFLAGS = -fsanitize=address
 SRC = $(wildcard src/*.cpp) $(wildcard src/*/*.cpp)
 OBJ = $(patsubst src/%.cpp,src/%.o,$(SRC))
 TARGET = bin/app
@@ -12,7 +13,7 @@ prepare:
 	fi
 
 $(TARGET): $(OBJ)
-	$(CC) $(OBJ) -o $(TARGET)
+	$(CC) $(LDFLAGS) $(OBJ) -o $(TARGET)
 
 %.o: %.cpp
 	$(CC) $(CFLAGS) -c $< -o $@
