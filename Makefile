@@ -22,7 +22,7 @@ clean:
 
 clean-all:
 	rm -f src/*.o src/*/*.o
-	@if [ -d bin ]; then \
+	if [ -d bin ]; then \
 		rm -r bin; \
 	fi
 
