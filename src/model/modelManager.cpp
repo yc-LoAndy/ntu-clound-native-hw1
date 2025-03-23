@@ -240,6 +240,7 @@ void ModelManager::getTopCategory(const std::vector<std::string> &args)
             maxCategory.push_back(name);
         }
     }
+    sort(maxCategory.begin(), maxCategory.end());
     for (auto c : maxCategory)
     {
         cout << c << endl;
