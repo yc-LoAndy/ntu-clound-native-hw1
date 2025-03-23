@@ -20,9 +20,11 @@ $(TARGET): $(OBJ)
 clean:
 	rm -f src/*.o src/*/*.o
 
+clean-all:
+	rm -f src/*.o src/*/*.o
+	@if [ -d bin ]; then \
+		rm -r bin; \
+	fi
+
 run:
 	$(TARGET)
-
-test:
-	echo $(SRC) > /dev/null
-	echo $(OBJ) > /dev/null

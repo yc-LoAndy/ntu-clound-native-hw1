@@ -32,7 +32,8 @@ void App::run()
                 continue;
             }
             vector<string> args = slice<string>(commandVec, 1);
-            this->commandMap[input](args);
+            this->commandMap[command](args);
+            cout << endl;
         }
         else
         {
@@ -43,9 +44,9 @@ void App::run()
 
 void App::registerCommand(const string &command, CommandHandler handler)
 {
-    if (this->commandMap.find(command) == this->commandMap.end())
+    if (this->commandMap.find(command) != this->commandMap.end())
     {
-        string errorMsg = "command already registered";
+        string errorMsg = "command already registered: ";
         throw invalid_argument(errorMsg += command);
     }
     this->commandMap[command] = handler;

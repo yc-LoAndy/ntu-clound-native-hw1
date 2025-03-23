@@ -6,7 +6,7 @@
 #include <unordered_map>
 #include <functional>
 
-using CommandHandler = std::function<std::string(std::vector<std::string>)>;
+using CommandHandler = std::function<void(std::vector<std::string>)>;
 
 class App
 {

@@ -3,6 +3,8 @@
 
 #include <vector>
 #include <string>
+#include <ctime>
+#include <sstream>
 
 std::vector<std::string> split(std::string &str);
 
@@ -23,5 +25,7 @@ std::vector<T> slice(const std::vector<T> &arr, int start = 0, int end = -1)
         result.push_back(arr[i]);
     return result;
 }
+
+std::string getCurrentDateTime();
 
 #endif
